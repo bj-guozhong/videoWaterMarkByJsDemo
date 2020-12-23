@@ -1,0 +1,2 @@
+# videoWaterMarkByJsDemo
+为Projekktor视频播放控件增加页面水印效果
