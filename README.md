@@ -19,7 +19,7 @@ mousedownHandler:function(e){console.log("mouse999");switch(e.which){case 3:var 
 4.下载源码可直接运行demo.html进行展现或扩展。
 
 非全屏效果图：
-https://github.com/bj-guozhong/repositoryvideoWaterMarkByJsDemo/raw/main/img/not_fullscreen.png
+https://github.com/bj-guozhong/videoWaterMarkByJsDemo/blob/main/img/not_fullscreen.png
 
 全屏效果图：
-https://github.com/bj-guozhong/repositoryvideoWaterMarkByJsDemo/raw/main/img/fullscreen.png
+https://github.com/bj-guozhong/videoWaterMarkByJsDemo/blob/main/img/fullscreen.png
