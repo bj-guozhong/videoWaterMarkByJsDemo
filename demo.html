@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>test html5 video player</title>
+	<script type="text/javascript" src="water2.js"></script>
+	<script type="text/javascript" src="water3.js"></script>
+
+    <script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="projekktor.min.js"></script>
+    <script type="text/javascript" src="projekktor.logo.min.js"></script>
+    <link rel="stylesheet" href="theme/maccaco/style.css" type="text/css" media="screen" /><!--controlbar-->
+    <link rel="stylesheet" href="theme/maccaco/logo.css" type="text/css" media="screen" /><!--logo-->
+	
+<script>
+	//默认初始化页面加载水印
+	$(document).ready(function() {
+		var watermark_txt="00313390";//水印内容
+		document.getElementById("watermarkId").value = watermark_txt;
+		//默认进入首页设置页面水印
+		watermark({"watermarl_element":"body", "watermark_txt":watermark_txt});//body为要添加的标签id
+	});
+
+	//js全屏模式下无法监听esc按键，解决办法：onresize 监听窗口改变
+	window.onresize = function() {
+	  if (!checkFull()) {
+		//清空全屏模式下的水印内容，方法watermark3
+		 watermark3({"watermarl_element":"player_a", "watermark_txt":"clear"});
+	  }
+	}
+	function checkFull() {
+	  var isFull =
+		document.fullscreenElement ||
+		document.mozFullScreenElement ||
+		document.webkitFullscreenElement
+	  if (isFull === undefined) isFull = false
+	  return isFull
+	}
+</script>  
+</head>
+<body>
+	<input type="hidden" name="" value="" id="watermarkId" />
+    <video id="player_a" class="projekktor" poster="cars.png" title="this is projekktor"
+        width="640" height="360">
+
+    </video>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            projekktor('#player_a', {
+                controls: true,
+                volume: 0.5,
+                autoplay: false,
+                addplugins: ['logo'],
+                playlist: [{
+                    0: { src: 'intro.mp4', type: 'video/mp4' },
+                    1: { src: 'intro.ogv', type: 'video/ogv' },
+                    config: {
+                        disablePause: true,
+                        disallowSkip: true
+                    }
+                },
+                {
+                    0: { src: 'cars.mp4', type: 'video/mp4' },
+                    1: { src: 'cars..ogv', type: 'video/ogv' }
+                }],
+                plugin_logo: { image: 'logo.png' },
+                playerFlashMP4: 'http://www.yourdomain.com/StrobeMediaPlayback.swf',
+                playerFlashMP3: 'http://www.yourdomain.com/StrobeMediaPlayback.swf'
+            });
+        }); 
+    </script>
+</body>
+</html>
